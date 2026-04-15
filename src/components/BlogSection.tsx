@@ -67,9 +67,7 @@ export default function BlogSection() {
                   {p.title}
                 </h3>
                 <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{p.excerpt}</p>
-                <span className="text-primary font-bold text-sm flex items-center gap-1">
-                  Read More <ArrowRight className="w-4 h-4" />
-                </span>
+             
               </div>
             </div>
           ))}

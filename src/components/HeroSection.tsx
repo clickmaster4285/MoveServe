@@ -20,8 +20,8 @@ export default function HeroSection() {
 
   useEffect(() => {
     import("gsap").then(({ gsap }) => {
-      gsap.fromTo(headingRef.current, { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 1, delay: 0.3 });
-      gsap.fromTo(subRef.current, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 1, delay: 0.6 });
+      gsap.fromTo(headingRef.current, { x: -80, opacity: 0 }, { x: 0, opacity: 1, duration: 1, delay: 0.3 });
+      gsap.fromTo(subRef.current, { x: -60, opacity: 0 }, { x: 0, opacity: 1, duration: 1, delay: 0.6 });
       gsap.fromTo(btnRef.current, { y: 30, opacity: 0, scale: 0.9 }, { y: 0, opacity: 1, scale: 1, duration: 0.8, delay: 0.9 });
     });
   }, []);
@@ -31,7 +31,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
+    <section className="relative h-screen min-h-[700px] flex items-center justify-start overflow-hidden">
       {images.map((img, i) => (
         <div
           key={i}
@@ -48,31 +48,40 @@ export default function HeroSection() {
           />
         </div>
       ))}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/20" />
 
-      <div className="relative z-10 text-center px-4 max-w-4xl">
+      <div className="relative z-10 text-left px-4 sm:px-8 md:px-16 lg:px-24 max-w-5xl">
         <h1
           ref={headingRef}
-          className="text-5xl md:text-7xl lg:text-8xl text-primary-foreground leading-tight tracking-wider opacity-0"
+          className="text-5xl md:text-7xl lg:text-7xl font-medium tracking-wider opacity-0"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          Power Your Food Truck with{" "}
-          <span className="gradient-text">Smart, Fast</span> Operations
+          <span className="text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
+            Power Your Food Truck with{" "}
+          </span>
+          <span className="gradient-text drop-shadow-[0_2px_15px_rgba(0,0,0,0.3)]">
+            Smart, Fast
+          </span>
+          <span className="text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
+            {" "}Operations
+          </span>
         </h1>
         <p
           ref={subRef}
-          className="mt-6 text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto opacity-0"
+          className="mt-6 text-lg md:text-xl max-w-2xl opacity-0"
           style={{ fontFamily: "var(--font-body)" }}
         >
-          Manage orders, track sales, and streamline your food truck business with a powerful
-          all-in-one system designed for speed and mobility.
+          <span className="text-white/95 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)] px-4 py-2 rounded-lg inline-block">
+            Manage orders, track sales, and streamline your food truck business with a powerful
+            all-in-one system designed for speed and mobility.
+          </span>
         </p>
         <button
           ref={btnRef}
           onClick={scrollToContact}
-          className="btn-chili mt-10 text-xl px-10 py-5 opacity-0"
+          className="btn-chili mt-10 text-xl px-10 py-5 opacity-0 shadow-lg hover:shadow-2xl transition-all"
         >
-          Get Started
+          Get Free Demo
         </button>
       </div>
 
@@ -83,8 +92,9 @@ export default function HeroSection() {
             key={i}
             onClick={() => setCurrent(i)}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              current === i ? "bg-primary scale-125" : "bg-primary-foreground/40"
+              current === i ? "bg-primary scale-125 shadow-lg shadow-primary/50" : "bg-white/60"
             }`}
+            aria-label={`Go to slide ${i + 1}`}
           />
         ))}
       </div>

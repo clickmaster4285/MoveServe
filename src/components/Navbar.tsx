@@ -38,7 +38,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
         <a href="#" className="flex items-center gap-2 group" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
           <Truck className="w-8 h-8 text-primary" />
-          <span className="text-2xl font-bold tracking-wider" style={{ fontFamily: "var(--font-display)" }}>
+          <span className="text-2xl font-bold tracking-wider text-white" style={{ fontFamily: "var(--font-display)" }}>
             TRUCKFLOW
           </span>
         </a>
@@ -49,7 +49,7 @@ export default function Navbar() {
             <button
               key={l.href}
               onClick={() => scrollTo(l.href)}
-              className="text-sm font-semibold text-foreground/80 hover:text-primary transition-colors cursor-pointer"
+              className="text-sm font-semibold text-white hover:text-primary transition-colors cursor-pointer"
             >
               {l.label}
             </button>
@@ -61,7 +61,7 @@ export default function Navbar() {
 
         {/* Mobile toggle */}
         <button className="lg:hidden text-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
-          {mobileOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
+          {mobileOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7 text-white" />}
         </button>
       </div>
 

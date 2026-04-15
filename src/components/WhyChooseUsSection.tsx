@@ -27,7 +27,7 @@ export default function WhyChooseUsSection() {
   }, []);
 
   return (
-    <section ref={ref} className="section-padding" style={{ background: "var(--gradient-hero)" }}>
+    <section ref={ref} className="section-padding bg-red-800" >
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="why-item section-title text-primary-foreground mb-4">
           Why Food Trucks Choose Us

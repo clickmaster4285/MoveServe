@@ -37,21 +37,21 @@ export default function HowItWorksSection() {
           </h2>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-8 items-stretch">
+        <div className="flex flex-col lg:flex-row gap-8 items-stretch relative">
           {steps.map((s, i) => (
             <div key={s.num} className="step-card flex-1 relative">
               <div className="card-street p-8 h-full text-center">
                 <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
                   <s.icon className="w-8 h-8 text-primary" />
                 </div>
-                <span className="text-6xl font-bold text-primary/10" style={{ fontFamily: "var(--font-display)" }}>{s.num}</span>
+               
                 <h3 className="text-2xl font-bold mt-2 mb-3" style={{ fontFamily: "var(--font-display)", letterSpacing: "0.03em" }}>
                   {s.title}
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">{s.desc}</p>
               </div>
               {i < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-primary/30" />
+                <div className="hidden lg:block absolute top-1/2 -right-6 w-12 h-0.5 bg-primary/30 -translate-y-1/2" />
               )}
             </div>
           ))}

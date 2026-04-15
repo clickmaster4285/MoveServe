@@ -28,6 +28,7 @@ const testimonials = [
 export default function TestimonialsSection() {
   const [current, setCurrent] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     import("gsap").then(({ gsap }) => {
@@ -43,8 +44,40 @@ export default function TestimonialsSection() {
     });
   }, []);
 
-  const prev = () => setCurrent((c) => (c === 0 ? testimonials.length - 1 : c - 1));
-  const next = () => setCurrent((c) => (c + 1) % testimonials.length);
+  // Auto-rotate testimonials every 5 seconds
+  useEffect(() => {
+    intervalRef.current = setInterval(() => {
+      setCurrent((c) => (c + 1) % testimonials.length);
+    }, 5000);
+
+    // Cleanup interval on component unmount
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, []);
+
+  const prev = () => {
+    setCurrent((c) => (c === 0 ? testimonials.length - 1 : c - 1));
+    // Reset interval timer when manually navigating
+    resetInterval();
+  };
+  
+  const next = () => {
+    setCurrent((c) => (c + 1) % testimonials.length);
+    // Reset interval timer when manually navigating
+    resetInterval();
+  };
+
+  const resetInterval = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = setInterval(() => {
+        setCurrent((c) => (c + 1) % testimonials.length);
+      }, 5000);
+    }
+  };
 
   const t = testimonials[current];
 

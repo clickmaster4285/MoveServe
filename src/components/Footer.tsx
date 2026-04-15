@@ -19,7 +19,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-primary-foreground/60 text-sm leading-relaxed">
-              The all-in-one POS and business management platform built for food trucks and mobile food businesses.
+             The platform designed for food trucks and mobile food businesses to simplify orders, payments, and operations.
             </p>
           </div>
 
