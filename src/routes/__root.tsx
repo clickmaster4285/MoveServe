@@ -40,6 +40,16 @@ export const Route = createRootRoute({
     ],
     links: [
       {
+        rel: "icon",
+        href: "/truckFlow.png",
+        type: "image/png",
+        sizes: "any"
+      },
+      {
+        rel: "apple-touch-icon",
+        href: "/truckFlow.png"
+      },
+      {
         rel: "stylesheet",
         href: appCss,
       },
