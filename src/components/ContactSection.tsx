@@ -89,10 +89,10 @@ export default function Contact() {
             Get In Touch
           </span>
           <h2 className="contact-content text-3xl md:text-5xl font-bold font-[var(--font-heading)] text-foreground mt-6 mb-4">
-            Let's Talk <span className="text-gradient-primary">Ice Cream</span>
+            Let's Talk 
           </h2>
           <p className="contact-content text-lg text-muted-foreground max-w-2xl mx-auto">
-            Ready to transform your ice cream shop? Drop us a message and we'll get back to you within 24 hours.
+            Ready to transform your buisness? Drop us a message and we'll get back to you within 24 hours.
           </p>
         </div>
 
@@ -232,7 +232,7 @@ export default function Contact() {
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
                   className="w-full rounded-xl border border-border bg-background px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all resize-none"
-                  placeholder="Tell us about your ice cream shop and requirements..."
+                  placeholder="Tell us about your buisness and requirements..."
                 />
               </div>
 
